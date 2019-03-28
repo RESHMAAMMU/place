@@ -1,0 +1,35 @@
+.card{
+	width: 200px;
+	height: 400px;
+	margin: 60px;
+	background-color: #0af1dbc7;
+	float: left;
+	border-radius: 20px;
+}
+
+.disnone{
+	list-style: none;
+}
+
+.innerdiv{
+	background-color: #ccc;
+	width:200px;
+}
+.smallbox{
+	width: 300px;
+	height: 400px;
+	margin: 60px;
+	background-color: pink;
+	float: left;
+	border-radius: 20px;
+	text-align: center;
+}
+.Newpost{
+		margin:15px auto;
+		padding: 10px;
+	background-color:gray;
+}
+.place{
+	background-color: #92a8d1;
+	height: auto;
+}
