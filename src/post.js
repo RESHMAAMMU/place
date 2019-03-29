@@ -5,8 +5,6 @@ import './post.css';
 
 import Reuse from './reuse.js';
 
-
-
 class Post extends React.Component {
     constructor(props) {
         super(props);
@@ -15,19 +13,19 @@ class Post extends React.Component {
             value: []
         };
     }
-
+//life cyclemethod for full post view
     componentDidMount() {
         axios.get('https://jsonplaceholder.typicode.com/posts')
 
             .then(hit => {
-                this.setState({ value: hit.data});
+                this.setState({ value: hit.data });
             })
-            .catch(error=>console.log("error",error))
+            .catch(error => console.log("error", error))
     }
 
-
-myidview = () => {
-
+//my post view 
+    myidview = () => {
+            //fech api using axios
         axios.get('https://jsonplaceholder.typicode.com/posts?userId=9')
             .then(hit => {
 
@@ -36,39 +34,45 @@ myidview = () => {
             .catch(error => console.log("error", error))
 
     }
+    //post delete
 
-deletepost=()=>{
-
-            axios.get('https://jsonplaceholder.typicode.com/posts')
+    deletepost=(id)=>
+{
+     axios.get('https://jsonplaceholder.typicode.com/posts?userId=9')
             .then(hit => {
+            this.setState({ value: hit.data });
+            //store an array to variable
+            var array = this.state.value;
+            
 
-                this.setState({ value: hit.data });
+            //var index = array.indexOf(array)
+            //alert(index);
+
+            //if (index !== -1) {
+         //array.splice(index, 1);
+        //this.setState({value: array});
+  
             })
             .catch(error => console.log("error", error))
-            const result=value.find()
 
+    
+} 
 
-}
-
-
-      render()
-      {
-        return(
-                <div>
+    render() {
+        return (
+            <div>
+        {/* button  create for mypost*/}
                 <button className="idview" onClick={this.myidview}>My post</button>
-
+            {/* mapping */}
               {this.state.value.map(value1=>
-                <Reuse details={value1} del={this.deletepost}/>
+                <Reuse details={value1} del={this.deletepost} />
            ) }
             
             
-                      
-                </div>
+            </div>
 
+        );
 
-
-            );
-
-      }
-  }
+    }
+}
 export default Post;

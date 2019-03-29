@@ -2,7 +2,7 @@ import React from 'react';
 
 import axios from 'axios';
 import './post.css';
-
+//comments view
 class Comments extends React.Component
 
 {
@@ -14,8 +14,8 @@ class Comments extends React.Component
     }
     componentDidMount() 
     {
-
-        axios.get('https://jsonplaceholder.typicode.com/comments?postId=' + this.props.match.params.id)
+    	// get the id from posts
+        axios.get('https://jsonplaceholder.typicode.com/posts' +this.props.match.param.id)
 
             .then(hit => {
                 this.setState({ cmnt: hit.data });
@@ -33,8 +33,8 @@ class Comments extends React.Component
 								<p>{comment.body}</p>
 							</div>)
 						}
-					</div>	
-        		);
+				</div>	
+        	);
     }
 }
 

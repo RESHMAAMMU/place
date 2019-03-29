@@ -5,31 +5,25 @@ import Ren from './render.js';
 
 
 import './post.css';
+//component for display
+const Reuse = (props) => {
 
-const Reuse=(props)=>{
+    return (
 
-return(
-
-			
-			<div className="card">
-
+        <div className="card">
 				<Link to={'/comments/'+props.details.id}>
+					<ul className="disnone">
+						<li><h5>{props.details.title}</h5></li>
+						<li>{props.details.body}</li>
+					</ul>
+				</Link>
+                <button onClick={()=>props.del(props.details.id)}>delete</button>
 
-                <ul className="disnone">
-
-                	<li><h5>{props.details.title}</h5></li>
-
-                	<li>{props.details.body}</li>
-
-                </ul>
-
+				<button title={props.details.title} body={props.details.body}>
+                	<Link to={'/update/'+props.details.id}>update
                 	</Link>
-                	<button onClick={props.del}>delete</button>
-                </div>
-                
-	)
-
-
+                </button>
+        </div>
+    )
 }
-
 export default Reuse;

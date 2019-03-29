@@ -9,8 +9,9 @@ constructor(props)
 
 		}
 	}
+	//new post creation
 addnewpost=()=> {
-
+	//set the body and title for new post
 	var title = this.refs.title.value;
     var body = this.refs.body.value;
 
@@ -35,23 +36,20 @@ addnewpost=()=> {
                 .catch(function(error) {
                     console.log(error);
                 });
-            }
-	render()
-	{
+           }
+	render(){
 
 		return(
 
-		<div className="Newpost">
-		<h1>Newpost</h1>
-		<label>title</label>
-		<input type="text" name="" ref="title" placeholder="title" /><br/>
-		<br/>
-		<textarea ref="body" placeholder="body"rows= "30"px cols="50"px/><br/>
+			<div className="Newpost">
+				<h1>Newpost</h1>
+				<label>title</label>
+				<input type="text" name="" ref="title" placeholder="title" /><br/>
+				<br/>
+				<textarea ref="body" placeholder="body"rows= "30"px cols="50"px/><br/>
+				<button ref="button" onClick={this.addnewpost}>send</button>
 		
-		
-		<button ref="button" onClick={this.addnewpost}>send</button>
-		
-		</div>
+			</div>
 			);
 	}
 }
